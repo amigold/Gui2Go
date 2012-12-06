@@ -142,8 +142,8 @@ public class FileDialogFragment extends DialogFragment
 			} else {
 				// if its not a directory
 				Activity act = getActivity();
-				if (act instanceof HomeScreen) {
-					((HomeScreen) act).doFileItemClick(file.getAbsolutePath());
+				if (act instanceof HomeActivity) {
+					((HomeActivity) act).doFileItemClick(file.getAbsolutePath());
 					getDialog().dismiss();
 				} else if (act instanceof EditorActivity) {
 					((EditorActivity) act).addResource(file.getAbsolutePath());

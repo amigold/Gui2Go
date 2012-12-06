@@ -21,6 +21,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xmlpull.v1.XmlSerializer;
 
+import com.ami.gui2go.models.ActivityInfo;
+import com.ami.gui2go.models.ProjectInfo;
+import com.ami.gui2go.utils.FileHelper;
+
 import android.content.Context;
 import android.os.Environment;
 import android.util.Xml;

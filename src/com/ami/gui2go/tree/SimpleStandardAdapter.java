@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import com.ami.gui2go.EditorActivity;
 import com.ami.gui2go.R;
-import com.ami.gui2go.WidgetTypes;
+import com.ami.gui2go.models.WidgetTypes;
 
 /**
  * This is a very simple adapter that provides very basic tree view with a

@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.ami.gui2go.models.ProjectInfo;
+import com.ami.gui2go.utils.FileHelper;
+
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.Bitmap;

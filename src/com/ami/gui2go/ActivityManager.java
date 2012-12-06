@@ -2,6 +2,10 @@ package com.ami.gui2go;
 
 import java.util.ArrayList;
 
+import com.ami.gui2go.models.ActivityInfo;
+import com.ami.gui2go.models.ProjectInfo;
+import com.ami.gui2go.models.WidgetTypes;
+
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;

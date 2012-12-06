@@ -75,10 +75,19 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.ViewFlipper;
 
+import com.ami.gui2go.models.ActivityInfo;
+import com.ami.gui2go.models.ProjectInfo;
+import com.ami.gui2go.models.Widget;
+import com.ami.gui2go.models.WidgetAttribute;
+import com.ami.gui2go.models.WidgetTypes;
+import com.ami.gui2go.models.WidgetWrapper;
 import com.ami.gui2go.tree.InMemoryTreeStateManager;
 import com.ami.gui2go.tree.SimpleStandardAdapter;
 import com.ami.gui2go.tree.TreeStateManager;
 import com.ami.gui2go.tree.TreeViewList;
+import com.ami.gui2go.utils.FileHelper;
+import com.ami.gui2go.utils.TextValidator;
+import com.ami.gui2go.views.ColorPickerDialog;
 
 public class EditorActivity extends Activity
 {
