@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:background="@drawable/bg_1280_800_1">
+	<requestFocus android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true" android:layout_marginLeft="481dp"
+		android:layout_marginTop="262dp"></requestFocus>
+	<TextView android:layout_height="wrap_content" android:text="@string/projects"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content" android:id="@+id/textView1"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:layout_marginLeft="50dip" android:layout_marginTop="35dip"></TextView>
+	<ListView android:id="@+id/projectsList"
+		android:layout_width="500dip" android:layout_below="@+id/textView1"
+		android:layout_alignLeft="@+id/textView1" android:layout_marginTop="5dip" android:layout_height="600dip"></ListView>
+	<FrameLayout android:layout_height="wrap_content"
+		android:alpha="0.0" android:layout_width="wrap_content"
+		android:layout_alignTop="@+id/textView1" android:layout_toRightOf="@+id/projectsList"
+		android:layout_marginLeft="78dip" android:layout_marginTop="-10dip"
+		android:id="@+id/project_details_frame">
+		<ImageView android:layout_width="wrap_content"
+			android:src="@drawable/bg_box_details_new" android:id="@+id/imageView1"
+			android:layout_height="wrap_content"></ImageView>
+		<TableLayout android:layout_width="match_parent"
+			android:layout_gravity="center_vertical" android:id="@+id/detailsLayout"
+			android:layout_height="wrap_content" android:layout_marginLeft="20dip">
+			<TableRow android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:id="@+id/TableRow01">
+				<TextView android:layout_width="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_gravity="left" android:layout_height="wrap_content"
+					android:text="@string/details" android:id="@+id/TextView01"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:id="@+id/TableRow1"
+				android:layout_marginTop="15dip">
+				<TextView android:text="@string/new_proj_dialog_proj_name"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/textView2"></TextView>
+				<TextView android:layout_marginLeft="10dip"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/thisProjectName"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:id="@+id/TableRow1"
+				android:layout_marginTop="10dip">
+				<TextView android:text="@string/new_project_target_sdk"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/textView4"></TextView>
+				<TextView android:layout_marginLeft="10dip"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/projectSDK"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:id="@+id/TableRow1"
+				android:layout_marginTop="10dip">
+				<TextView android:text="@string/new_project_author"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/TextView02"></TextView>
+				<TextView android:layout_marginLeft="10dip"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/projectAuthor"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent"
+				android:layout_height="wrap_content" android:id="@+id/TableRow1"
+				android:layout_marginTop="10dip">
+				<TextView android:text="@string/new_proj_main_activity"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/TextView04"></TextView>
+				<TextView android:layout_marginLeft="10dip"
+					android:layout_height="wrap_content" android:layout_width="wrap_content"
+					style="@style/detailsText" android:id="@+id/projectMainActName"></TextView>
+			</TableRow>
+		</TableLayout>
+	</FrameLayout>
+
+</RelativeLayout>

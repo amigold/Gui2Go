@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:icon="@drawable/ic_delete" android:id="@+id/menu_delete"
+		android:title="@string/del_btn" android:showAsAction="ifRoom"></item>
+	<item android:id="@+id/menu_rename" android:title="@string/rename_btn" android:showAsAction="ifRoom|withText" android:icon="@drawable/ic_rename1"></item>
+	<item android:icon="@drawable/ic_toggle_weight"
+		android:showAsAction="ifRoom" android:id="@+id/menu_fill_parent_w"
+		android:title="@string/menu_fill_parent_w"></item>
+	<item android:icon="@drawable/ic_toggle_height"
+		android:showAsAction="ifRoom" android:id="@+id/menu_fill_parent_h"
+		android:title="@string/menu_fill_parent_h"></item>
+	<item android:icon="@drawable/icon" android:showAsAction="ifRoom|withText"
+		android:id="@+id/menu_change_text" android:title="@string/change_text"></item>
+	<item android:id="@+id/menu_change_size" android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_change_size" android:title="@string/change_size"></item>
+	<item android:id="@+id/menu_set_layout_parameters" android:title="@string/set_layout_params"></item><item android:id="@+id/menu_change_margins" android:showAsAction="ifRoom|withText" android:title="@string/set_margins"></item>
+</menu>

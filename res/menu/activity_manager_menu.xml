@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/add_activity" android:icon="@drawable/ic_add_act" android:id="@+id/add_activity_menu" android:showAsAction="always|withText"></item>
+    
+</menu>

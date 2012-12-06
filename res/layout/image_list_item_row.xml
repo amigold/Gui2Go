@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:background="@drawable/manager_selector"
+	android:layout_width="match_parent">
+	<TextView android:layout_width="wrap_content"
+		android:textSize="20dip" android:text="TextView" android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:id="@+id/imageName"></TextView>
+	<ImageView android:src="@drawable/ic_delete_act" android:visibility="invisible"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:id="@+id/btn_delete_act" android:layout_gravity="center_vertical"></ImageView>
+
+</LinearLayout>

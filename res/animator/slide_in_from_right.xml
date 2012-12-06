@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+	android:duration="300" android:valueFrom="1280" android:valueTo="1030"
+	android:valueType="floatType" android:propertyName="x" />
+
+<!-- make sure to change the anim values of the buttons too, I did them in 
+	the code cause it was simpler. -->

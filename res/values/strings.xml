@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="editor_name">Gui2Go - Editor</string>
+	<string name="app_name">Gui2Go</string>
+	<string name="preferences">Preferences:</string>
+	<string-array name="sampleData">
+		<item>lorem</item>
+		<item>ipsum</item>
+		<item>dolor</item>
+		<item>sit</item>
+		<item>amet</item>
+		<item>consectetuer</item>
+		<item>adipiscing</item>
+		<item>elit</item>
+		<item>morbi</item>
+		<item>vel</item>
+	</string-array>
+	<string-array name="widgetNames">
+		<item>Button</item>
+		<item>CheckBox</item>
+		<item>TextView</item>
+		<item>EditText</item>
+		<item>RadioButton</item>
+		<item>Spinner</item>
+		<item>ToggleButton</item>
+		<item>LinearLayout</item>
+		<item>RelativeLayout</item>
+		<item>FrameLayout</item>
+		<item>TableLayout</item>
+		<item>AbsoluteLayout</item>
+	</string-array>
+	<string-array name="relativeLayoutValues">
+		<item>Left of..</item>
+		<item>Right of..</item>
+		<item>Above..</item>
+		<item>Below..</item>
+		<item>Align Baseline..</item>
+		<item>Align Left..</item>
+		<item>Align Top..</item>
+		<item>Align Right..</item>
+		<item>Align Bottom..</item>
+		<item>Align Parent Left</item>
+		<item>Align Parent Top</item>
+		<item>Align Parent Right</item>
+		<item>Align Parent Bottom</item>
+		<item>Center in parent</item>
+		<item>Center horizontal</item>
+		<item>Center vertical</item>
+	</string-array>
+	<string name="add_res">Add Resource</string>
+	<string name="add_res_short">Add Res.</string>
+	<string name="new_act_btn">New Activity</string>
+	<string name="manage_acts">Manage Activities</string>
+	<string name="manage_res">Manage Resources</string>
+	<string name="export_btn">Export XML</string>
+	<string name="save_btn">Save</string>
+	<string name="load_btn">Load</string>
+	<string name="del_btn">Delete</string>
+	<string name="rename_btn">Rename...</string>
+	<string name="change_size">Change Size...</string>
+	<string name="change_text">Change Text\\Image...</string>
+	<string name="lock">Lock widget</string>
+	<string name="menu_fill_parent_h">Toggle Fill Height</string>
+	<string name="menu_fill_parent_w">Toggle Fill Width</string>
+	<string name="edit_mode_CAB">Edit Mode</string>
+	<string name="set_gravity_menuitem">Set Gravity...</string>
+	<string name="set_weight_menuitem">Set Weight...</string>
+	<string name="set_layout_params">Set RelativeLayout Parameters...</string>
+	<string name="btn_new_project">New Project</string>
+	<string name="btn_open_project">Open Project</string>
+	<string name="btn_import_project">Import Project</string>
+	<string name="text_recent_projects">
+		<u>Recent Projects:</u>
+	</string>
+	<string name="btn_export_project">Export Project...</string>
+	<string name="clear_scrn">Clear Screen</string>
+	<string name="new_proj_dialog_proj_name">Project Name:</string>
+	<string name="new_project_target_sdk">Target SDK:</string>
+	<string name="new_proj_main_activity">Main Activity Name:</string>
+	<string name="new_project_author">Author:</string>
+	<string name="new_proj_size">Main Activity Size:</string>
+	<string-array name="screenSizes">
+		<item>2.7in QVGA 240x320</item>
+		<item>2.7in QVGA 240x320 (landscape)</item>
+		<item>3.2in HVGA 320x480</item>
+		<item>3.2in HVGA 320x480 (landscape)</item>
+		<item>3.3in WQVGA 240x400</item>
+		<item>3.3in WQVGA 240x400 (landscape)</item>
+		<item>3.4in WQVGA 240x432</item>
+		<item>3.4in WQVGA 240x432 (landscape)</item>
+		<item>5.1in WVGA / 3.7in WVGA 480x800</item>
+		<item>5.1in WVGA / 3.7in WVGA 480x800 (landscape)</item>
+		<item>5.4 FWVGA / 3.7in FWVGA 480x854</item>
+		<item>5.4 FWVGA / 3.7in FWVGA 480x854 (landscape)</item>
+		<item>10.1in WXGA 1280x800</item>
+	</string-array>
+	<string-array name="rootLayoutTypes">
+		<item>LinearLayout</item>
+		<item>RelativeLayout</item>
+		<item>FrameLayout</item>
+		<item>TableLayout</item>
+	</string-array>
+	<string-array name="SDKValues">
+		<item>Android 3.1</item>
+		<item>Android 3.0</item>
+		<item>Android 2.3.3</item>
+		<item>Android 2.3</item>
+		<item>Android 2.2</item>
+		<item>Android 2.1</item>
+		<item>Android 2.0</item>
+	</string-array>
+	<string-array name="helpTopics">
+		<item>Project Management</item>
+		<item>Activity Management</item>
+		<item>Placing / Editing Widgets</item>
+		<item>Exporting layout files</item>
+	</string-array>
+	<string name="activity_name">Activity Name:</string>
+	<string name="screen_size">Screen Size:</string>
+	<string name="activities">
+		<u>Activities:</u>
+	</string>
+	<string name="add_activity">Add Activity</string>
+	<string name="edit_btn">Edit</string>
+	<string name="set_main_act">Set Main Activity</string>
+	<string name="leftOf">Left of...</string>
+	<string name="rightOf">Right of...</string>
+	<string name="below">Below...</string>
+	<string name="above">Above...</string>
+	<string name="centerInParent">Center in parent</string>
+	<string name="common_actions">Common Actions:</string>
+	<string name="parent_actions">Parent Actions:</string>
+	<string name="anchored_actions">Anchored Actions:</string>
+	<string name="activity_manager">Activity Manager</string>
+	<string name="activity_properties">
+		<u>Activity Properties:</u>
+	</string>
+	<string name="curr_size">Current screen size:</string>
+	<string name="toggle_orientation">Toggle Orientation</string>
+	<string name="main_layout_type_label">Root Layout type:</string>
+	<string name="change_root_layout">Change root layout type...</string>
+	<string name="old_root_layout">Current Type:</string>
+	<string name="clear_screen_warning">Warning: this will delete all your widgets!
+	</string>
+	<string name="new_project_btn">
+		<u>Create a new project:</u>
+	</string>
+	<string name="open_project">
+		<u>Open Project:</u>
+	</string>
+	<string name="import_project">
+		<u>Import an XML:</u>
+	</string>
+	<string name="export_project">Export Project</string>
+	<string name="delete_project">Delete Project...</string>
+	<string name="manage_projects">Manage Projects</string>
+	<string name="projects">
+		<u>Projects:</u>
+	</string>
+	<string name="details">
+		<u>Details:</u>
+	</string>
+	<string name="project_manager">Project Manager</string>
+	<string name="curr_sdk">Current SDK Target:</string>
+	<string name="new_target_sdk">New Target SDK:</string>
+	<string name="usage_guide">User Guide</string>
+	<string name="user_guide_activity">User Guide</string>
+	<string name="set_margins">Set Margins...</string>
+	<string name="top">Top:</string>
+	<string name="left">Left:</string>
+	<string name="right">Right:</string>
+	<string name="bottom">Bottom:</string>
+	<string name="name_convention1">Only alphanumeric characters and -_ are allowed.
+	</string>
+	<string name="name_convention2">Only 20 characters allowed per name.</string>
+	<string name="name_convention0">
+		<u>Naming Convention:</u>
+	</string>
+	<string name="no_files">No Files</string>
+	<string name="change_back_color">Change background color...</string>
+	<string name="image_resources">
+		<u>Image Resources:</u>
+	</string>
+	<string name="preview">
+		<u>Preview:</u>
+	</string>
+	<string name="resource_manager">Resource Manager</string>
+	<string name="create_new_proj_desc">Create a new project and start working on your new
+		app!</string>
+	<string name="import_desc">Import an XML and create a new project from it
+	</string>
+	<string name="add_row">Add Row</string>
+	<string name="first_help2">By the way, you should probably read the
+		<a href="http://developer.android.com/guide/topics/ui/index.html">Android User Interface Basics</a> first so you can understand the basics of Android User Interface Design.
+	</string>
+	<string name="first_help1">"So, first timer huh?\nThat's ok! We've got some great guides to help you settle right in!\nJust hang out a bit in the User Guide area and you will surely get the idea in no time!"</string>
+	<string name="purchase1">"It's really nice of you to take an interest in Gui 2 Go!\nSadly, it seems you did not buy this app and you will have to buy it in order to enjoy it.\n\n"</string>
+	<string name="purchase2">Note: If you have received this error by mistake, please use the retry button. Make sure you are connected to the internet.</string>
+</resources>

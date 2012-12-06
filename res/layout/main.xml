@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:treeView="http://schemas.android.com/apk/res/pl.polidea.treeview"
+	android:layout_width="match_parent" android:layout_height="wrap_content"
+	android:id="@+id/rootLayout" android:background="@drawable/bg_1280_800_1"
+	android:gravity="center_vertical">
+	<RelativeLayout android:id="@+id/UIcanvas"
+		android:layout_centerInParent="true" android:layout_height="wrap_content"
+		android:layout_width="wrap_content">
+		<ImageView android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true" android:scaleType="center"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:src="@drawable/bg480x800" android:id="@+id/ui_bg_img"></ImageView>
+		<LinearLayout android:orientation="vertical" android:id="@+id/mainLayout"
+			android:addStatesFromChildren="false" android:layout_alignLeft="@+id/ui_bg_img"
+			android:layout_width="match_parent" android:layout_height="match_parent"
+			android:layout_alignRight="@+id/ui_bg_img"></LinearLayout>
+	</RelativeLayout>
+	<TextView android:textSize="20dip" android:background="#30C0C0C0"
+		android:text="TextView" android:layout_width="wrap_content"
+		android:alpha="0.0" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true" android:visibility="invisible"
+		android:layout_centerHorizontal="true" android:id="@+id/actionDescriber"></TextView>
+	<LinearLayout android:visibility="invisible"
+		android:background="@drawable/toolbox_gradient" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/relativeUtilitiesLayout"
+		android:orientation="vertical" android:layout_centerVertical="true">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/textView1" android:layout_marginBottom="10dip"
+			android:layout_gravity="center_horizontal" android:text="@string/anchored_actions"></TextView>
+		<ImageView android:layout_width="50dip"
+			android:layout_gravity="center_horizontal" android:onClick="btnClick_Above"
+			android:layout_height="wrap_content" android:id="@+id/btn_above"
+			android:src="@drawable/ic_align_above"></ImageView>
+		<LinearLayout android:layout_width="wrap_content"
+			android:id="@+id/relative_mid" android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal">
+			<ImageView android:layout_width="50dip" android:onClick="btnClick_LeftOf"
+				android:layout_height="wrap_content" android:id="@+id/btn_leftof"
+				android:src="@drawable/ic_align_left_of"></ImageView>
+			<ImageView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:src="@drawable/ic_align_object"
+				android:id="@+id/target_icon"></ImageView>
+			<ImageView android:layout_width="50dip" android:onClick="btnClick_RightOf"
+				android:layout_height="wrap_content" android:id="@+id/btn_rightof"
+				android:src="@drawable/ic_align_right_of"></ImageView>
+		</LinearLayout>
+		<ImageView android:layout_width="50dip"
+			android:layout_gravity="center_horizontal" android:onClick="btnClick_Below"
+			android:layout_height="wrap_content" android:id="@+id/btn_below"
+			android:src="@drawable/ic_align_below"></ImageView>
+		<LinearLayout android:layout_width="wrap_content"
+			android:id="@+id/LinearLayout01" android:layout_height="wrap_content"
+			android:layout_marginTop="10dip">
+			<ImageView android:layout_width="50dip"
+				android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignTop"
+				android:layout_height="wrap_content" android:src="@drawable/ic_align_top"
+				android:id="@+id/btn_alignTop"></ImageView>
+			<ImageView android:layout_width="50dip"
+				android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignBottom"
+				android:layout_height="wrap_content" android:src="@drawable/ic_align_bottom"
+				android:id="@+id/btn_alignBottom"></ImageView>
+			<ImageView android:layout_width="50dip"
+				android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignLeft"
+				android:layout_height="wrap_content" android:src="@drawable/ic_align_left"
+				android:id="@+id/btn_alignLeft"></ImageView>
+			<ImageView android:layout_width="50dip"
+				android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignRight"
+				android:layout_height="wrap_content" android:src="@drawable/ic_align_right"
+				android:id="@+id/btn_alignRight"></ImageView>
+		</LinearLayout>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/TextView01" android:layout_marginTop="10dip"
+			android:layout_marginBottom="10dip" android:text="@string/parent_actions"
+			android:layout_gravity="center_horizontal"></TextView>
+		<ImageView android:layout_width="50dip"
+			android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignParentTop"
+			android:layout_height="wrap_content" android:id="@+id/btn_alignParentTop"
+			android:src="@drawable/ic_align_parent_top"></ImageView>
+		<LinearLayout android:layout_width="wrap_content"
+			android:id="@+id/LinearLayout02" android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal">
+			<ImageView android:layout_width="50dip" android:onClick="btnClick_AlignParentLeft"
+				android:layout_height="wrap_content" android:id="@+id/btn_alignParentLeft"
+				android:src="@drawable/ic_align_parent_left"></ImageView>
+			<ImageView android:layout_width="50dip" android:onClick="btnClick_CenterInParent"
+				android:layout_height="wrap_content" android:id="@+id/btn_centerInParent"
+				android:src="@drawable/ic_align_center_in_parent"></ImageView>
+			<ImageView android:layout_width="50dip" android:onClick="btnClick_AlignParentRight"
+				android:layout_height="wrap_content" android:id="@+id/btn_alignParentRight"
+				android:src="@drawable/ic_align_parent_right"></ImageView>
+		</LinearLayout>
+		<ImageView android:layout_width="50dip"
+			android:layout_gravity="center_horizontal" android:onClick="btnClick_AlignParentBottom"
+			android:layout_height="wrap_content" android:id="@+id/btn_alignParentBottom"
+			android:src="@drawable/ic_align_parent_bottom"></ImageView>
+		<LinearLayout android:id="@+id/relative_extras"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginTop="10dip" android:layout_gravity="center_horizontal">
+			<ImageView android:layout_width="50dip"
+				android:src="@drawable/ic_align_center_parent_horiz"
+				android:layout_height="wrap_content" android:onClick="btnClick_CenterVertical"
+				android:id="@+id/btn_centerParentVertical" android:layout_gravity="center_horizontal"></ImageView>
+			<ImageView android:layout_width="50dip"
+				android:src="@drawable/ic_align_center_parent_vert"
+				android:layout_height="wrap_content" android:onClick="btnClick_CenterHorizontal"
+				android:id="@+id/btn_centerParentHorizontal" android:layout_gravity="center_horizontal"></ImageView>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:background="@drawable/toolbox_gradient"
+		android:orientation="vertical" android:visibility="invisible"
+		android:layout_alignParentRight="true" android:layout_centerVertical="true"
+		android:id="@+id/toolboxPanelLayout" android:layout_width="250dip"
+		android:layout_height="match_parent">
+		<ViewFlipper android:id="@+id/viewFlipper1"
+			android:layout_height="485dip" android:layout_width="wrap_content"
+			android:layout_weight="1">
+			<GridView android:layout_width="match_parent"
+				android:numColumns="auto_fit" android:verticalSpacing="5dip"
+				android:stretchMode="columnWidth" android:id="@+id/toolbox"
+				android:layout_height="match_parent"></GridView>
+		</ViewFlipper>
+		<LinearLayout android:layout_width="match_parent"
+			android:id="@+id/extraIconsLayout" android:layout_weight="1"
+			android:layout_height="0dp">
+			<ImageButton android:id="@+id/widgetAddButton"
+				android:src="@drawable/ic_add_widget" android:layout_width="80dip"
+				android:clickable="true" android:background="#00000000"
+				android:layout_height="80dip" android:onClick="addButtonAction"
+				android:alpha="0" android:layout_gravity="center_vertical"></ImageButton>
+			<ImageButton android:id="@+id/widgetDeleteButton"
+				android:src="@drawable/ic_delete_big" android:layout_width="wrap_content"
+				android:background="#00000000" android:scaleX="1" android:visibility="gone"
+				android:layout_height="wrap_content" android:scaleY="1"
+				android:alpha="0" android:layout_gravity="center_vertical" android:layout_marginLeft="-60dip"></ImageButton>
+			<ImageButton android:layout_width="80dip"
+				android:onClick="btnClick_widgetUp" android:layout_height="80dip"
+				android:id="@+id/widgetUpButton" android:alpha="0"
+				android:clickable="true" android:background="#00000000" android:src="@drawable/ic_up"
+				android:layout_gravity="center_vertical"></ImageButton>
+			<ImageButton android:layout_width="80dip"
+				android:onClick="btnClick_widgetDown" android:layout_height="80dip"
+				android:id="@+id/widgetDownButton" android:alpha="0"
+				android:clickable="true" android:background="#00000000" android:src="@drawable/ic_down"
+				android:layout_gravity="center_vertical"></ImageButton>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/drawerButtonsLayout"
+		android:layout_centerVertical="true" android:layout_width="wrap_content"
+		android:layout_alignParentRight="true" android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<ImageButton android:src="@drawable/ic_tools1_1"
+			android:background="#00000000" android:layout_height="wrap_content"
+			android:onClick="toolboxBtnClick" android:id="@+id/toolboxBtn"
+			android:layout_width="70dip" />
+		<ImageButton android:src="@drawable/ic_tree1_1"
+			android:background="#00000000" android:layout_height="wrap_content"
+			android:onClick="treeBtnClick" android:id="@+id/treeBtn"
+			android:layout_width="70dip"></ImageButton>
+	</LinearLayout>
+	<FrameLayout android:orientation="vertical"
+		android:splitMotionEvents="true" android:layout_centerVertical="true"
+		android:layout_toLeftOf="@+id/UIcanvas" android:layout_height="300dip"
+		android:layout_width="300dip" android:id="@+id/radialMenuLayout">
+		<ImageView android:layout_width="wrap_content" android:id="@+id/radialMenuButton"
+			android:layout_height="wrap_content" android:src="@drawable/radial_main_button"
+			android:tag="Menu" android:layout_gravity="center"></ImageView>
+		<ImageView style="@style/styleName" android:layout_width="wrap_content"
+			android:tag="EditText" android:layout_height="wrap_content"
+			android:src="@drawable/edit_text" android:id="@+id/editTextBtn"
+			android:layout_gravity="right" android:layout_marginRight="20dip"
+			android:layout_marginTop="40dip"></ImageView>
+		<ImageView style="@style/styleName" android:layout_width="wrap_content"
+			android:tag="Button" android:layout_height="wrap_content"
+			android:src="@drawable/button" android:id="@+id/buttonBtn"
+			android:layout_marginLeft="65dip" android:layout_marginTop="15dip"></ImageView>
+		<ImageView style="@style/styleName" android:layout_width="wrap_content"
+			android:tag="TextView" android:layout_height="wrap_content"
+			android:src="@drawable/textview" android:id="@+id/textViewBtn"
+			android:layout_gravity="center_vertical"></ImageView>
+		<ImageView android:layout_marginBottom="10dip" android:id="@+id/chkboxBtn"
+			android:layout_width="wrap_content" android:layout_marginLeft="70dip"
+			android:src="@drawable/checkbox" android:layout_height="wrap_content"
+			style="@style/styleName" android:layout_gravity="bottom" android:tag="CheckBox"></ImageView>
+		<ImageView style="@style/styleName" android:layout_width="wrap_content"
+			android:tag="ImageView" android:layout_height="wrap_content"
+			android:src="@drawable/imageview" android:layout_gravity="bottom|right"
+			android:id="@+id/imageViewBtn" android:layout_marginRight="20dip"
+			android:layout_marginBottom="40dip"></ImageView>
+	</FrameLayout>
+</RelativeLayout>

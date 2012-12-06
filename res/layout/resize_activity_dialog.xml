@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:orientation="vertical">
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/activity_size_label" android:text="@string/curr_size"></TextView>
+        <TextView android:layout_height="wrap_content" android:text="@string/activity_name" android:layout_width="wrap_content" android:id="@+id/activity_size_label2" android:layout_marginLeft="10dip"></TextView>
+    </LinearLayout>    
+    <LinearLayout android:id="@+id/linearLayout5" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center|center_vertical" android:text="@string/screen_size" android:id="@+id/new_act_size_label"></TextView>
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="top" android:layout_marginLeft="20dip" android:id="@+id/new_act_size"></Spinner>
+    </LinearLayout>
+</LinearLayout>

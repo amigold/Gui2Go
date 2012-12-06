@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:background="@drawable/manager_selector"
+	android:layout_width="match_parent">
+	<ImageView android:layout_width="wrap_content" android:src="@drawable/ic_activity"
+		android:id="@+id/homeActIcon" android:layout_height="wrap_content"></ImageView>
+	<TextView android:layout_width="wrap_content"
+		android:textSize="20dip" android:text="TextView"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_gravity="center_vertical" android:id="@+id/activityName"
+		android:layout_height="wrap_content"></TextView>
+	<ImageView android:layout_height="wrap_content" android:id="@+id/btn_edit_act"
+		android:layout_width="wrap_content" android:src="@drawable/ic_edit_act"
+		android:visibility="invisible" android:layout_gravity="center"></ImageView>
+	<ImageView android:src="@drawable/ic_delete_act"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:visibility="invisible" android:id="@+id/btn_delete_act"
+		android:layout_gravity="center"></ImageView>
+	<ImageView android:src="@drawable/ic_duplicate"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:visibility="invisible" android:id="@+id/btn_clone_act"
+		android:layout_gravity="center"></ImageView>
+	<ImageView android:layout_width="wrap_content" android:src="@drawable/ic_rename_act"
+		android:layout_height="wrap_content" android:id="@+id/btn_rename_act"
+		android:visibility="invisible" android:layout_gravity="center"></ImageView>
+	<ImageView android:layout_width="wrap_content" android:src="@drawable/ic_change_size"
+		android:layout_height="wrap_content" android:id="@+id/btn_resize_act"
+		android:visibility="invisible" android:layout_gravity="center"></ImageView>
+	<ImageView android:layout_height="wrap_content" android:id="@+id/btn_set_act_as_main"
+		android:layout_width="wrap_content" android:src="@drawable/ic_set_main_act"
+		android:visibility="invisible" android:layout_gravity="center"></ImageView>
+</LinearLayout>

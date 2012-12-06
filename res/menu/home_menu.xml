@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<item android:title="@string/manage_projects" android:id="@+id/manage_projects_menu" android:showAsAction="always|withText"></item>
+	<item android:title="@string/usage_guide" android:id="@+id/usage_guide_menu" android:showAsAction="always|withText"></item>
+
+</menu>

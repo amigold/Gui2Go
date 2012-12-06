@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/addResourceBtn" android:title="@string/add_res" android:icon="@drawable/ic_add_res" android:titleCondensed="@string/add_res_short" android:showAsAction="ifRoom|withText"></item>
+    
+</menu>

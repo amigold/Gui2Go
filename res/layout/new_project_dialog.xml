@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:orientation="vertical">
+    <LinearLayout android:id="@+id/linearLayout1" android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_marginTop="4dip">
+        <TextView android:layout_width="wrap_content" android:text="@string/new_proj_dialog_proj_name" android:layout_height="wrap_content" android:id="@+id/textView1"></TextView>
+        <EditText android:maxLength="20" android:layout_width="match_parent" android:text="" android:layout_height="wrap_content" android:id="@+id/new_proj_name" android:layout_marginLeft="40dip" android:inputType="textNoSuggestions|textPersonName"></EditText>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout2" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:text="@string/new_project_target_sdk" android:layout_height="wrap_content" android:id="@+id/textView2" android:gravity="center|center_vertical"></TextView>
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/new_projc_sdk_Spinner" android:layout_gravity="top" android:layout_marginLeft="55dip"></Spinner>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:text="@string/new_proj_main_activity" android:layout_height="wrap_content" android:id="@+id/textView3"></TextView>
+        <EditText android:maxLength="20" android:layout_width="match_parent" android:text="" android:layout_height="wrap_content" android:id="@+id/new_proj_main_act" android:inputType="textNoSuggestions"></EditText>
+    </LinearLayout>    
+    <LinearLayout android:id="@+id/linearLayout5" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView2" android:gravity="center|center_vertical" android:text="@string/new_proj_size"></TextView>
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/new_proj_size_Spinner" android:layout_gravity="top" android:layout_marginLeft="15dip"></Spinner>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center|center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TextView01" android:text="@string/main_layout_type_label"></TextView>
+        <Spinner android:layout_gravity="top" android:layout_width="match_parent" android:layout_marginLeft="15dip" android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/new_proj_layout_spinner"></Spinner>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout4" android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <TextView android:text="@string/new_project_author" android:id="@+id/textView4" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+        <EditText android:maxLength="30" android:layout_height="wrap_content" android:text="" android:layout_width="match_parent" android:layout_marginLeft="85dip" android:id="@+id/new_proj_author" android:inputType="textNoSuggestions"></EditText>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:background="@drawable/manager_selector"
+	android:layout_width="match_parent">
+	<TextView android:layout_width="wrap_content"
+		android:textSize="20dip" android:text="TextView"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_gravity="center_vertical" android:layout_height="wrap_content"
+		android:layout_marginLeft="5dip" android:id="@+id/projectName"></TextView>
+	<ImageView android:layout_gravity="center" android:src="@drawable/ic_edit_act"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:id="@+id/btn_edit_proj" android:visibility="invisible"></ImageView>
+	<ImageView android:src="@drawable/ic_rename_act"
+		android:visibility="invisible" android:layout_gravity="center"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:id="@+id/btn_rename_proj"></ImageView>
+	<ImageView android:src="@drawable/ic_duplicate"
+		android:visibility="invisible" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/btn_clone_proj"></ImageView>
+	<ImageView android:src="@drawable/ic_delete_act"
+		android:visibility="invisible" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/btn_delete_proj"></ImageView>
+	<ImageView android:layout_width="wrap_content"
+		android:visibility="invisible" android:layout_height="wrap_content"
+		android:src="@drawable/ic_change_sdk" android:id="@+id/btn_change_sdk"></ImageView>
+</LinearLayout>

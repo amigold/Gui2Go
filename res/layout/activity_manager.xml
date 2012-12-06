@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:background="@drawable/bg_1280_800_1"
+	android:layout_height="match_parent">
+	<TextView android:text="@string/activities"
+		android:layout_width="wrap_content" android:id="@+id/acts_text"
+		android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_marginLeft="50dip" android:layout_marginTop="35dip"></TextView>
+	<FrameLayout android:layout_height="wrap_content" android:alpha="1.0" android:id="@+id/detailsFrame" android:layout_width="wrap_content" android:layout_alignTop="@+id/acts_text" android:layout_alignParentRight="true" android:layout_marginRight="115dp" android:layout_marginTop="-10dip">
+		<ImageView android:layout_width="wrap_content" android:src="@drawable/bg_box_details_new" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
+		<TableLayout android:layout_width="match_parent" android:id="@+id/detailsLayout" android:layout_height="match_parent" android:layout_gravity="top" android:layout_marginLeft="20dip" android:layout_marginTop="20dip">
+			<TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow2">
+				<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/activity_properties" android:id="@+id/TextView02"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/TableRow1" android:layout_marginTop="15dip" android:layout_marginBottom="10dip">
+				<TextView android:text="@string/activity_name" android:layout_height="wrap_content" android:layout_width="wrap_content" style="@style/detailsText" android:id="@+id/TextView01" android:layout_marginLeft="5dip" android:layout_marginTop="15dip" android:layout_marginBottom="10dip"></TextView>
+				<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" style="@style/detailsText" android:id="@+id/activity_name_text" android:layout_marginLeft="5dip" android:layout_marginTop="15dip" android:layout_marginBottom="10dip"></TextView>
+			</TableRow>
+			<TableRow android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/TableRow1" android:layout_marginTop="15dip" android:layout_marginBottom="10dip">
+				<TextView android:text="@string/screen_size" android:layout_height="wrap_content" android:layout_width="wrap_content" style="@style/detailsText" android:id="@+id/textView4"></TextView>
+				<TextView android:layout_marginLeft="10dip" android:layout_height="wrap_content" android:layout_width="wrap_content" style="@style/detailsText" android:id="@+id/activity_screen_size_text"></TextView>
+			</TableRow>
+		</TableLayout>
+	</FrameLayout>
+	<ListView android:layout_width="600dip" android:id="@+id/activityList" android:layout_below="@+id/acts_text" android:layout_alignLeft="@+id/acts_text" android:layout_marginTop="5dip" android:layout_height="600dip"></ListView>
+</RelativeLayout>

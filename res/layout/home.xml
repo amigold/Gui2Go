@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:background="@drawable/bg_1280_800_1"
+	android:layout_height="match_parent" android:layout_gravity="left">
+	<LinearLayout android:layout_height="wrap_content"
+		android:id="@+id/recentsLayout" android:layout_width="300dip"
+		android:orientation="vertical" android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true" android:layout_marginLeft="80dip"
+		android:layout_marginTop="50dip">
+		<TextView android:text="@string/open_project"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			style="@style/homeScreenHeadline" android:id="@+id/TextView01"
+			android:layout_gravity="left"></TextView>
+		<ImageButton android:src="@drawable/open_project"
+			android:background="#00000000" android:layout_width="150dip"
+			android:id="@+id/btn_open" android:layout_marginLeft="5dip"
+			android:onClick="LoadProject" android:layout_height="150dip"
+			android:layout_gravity="left"></ImageButton>
+		<TextView android:text="@string/text_recent_projects"
+			android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_height="wrap_content" android:textSize="22dip"
+			android:id="@+id/textView1" android:layout_gravity="left"></TextView>
+		<ListView android:layout_width="wrap_content"
+			android:paddingRight="4dip" android:layout_height="match_parent"
+			android:id="@+id/recentsList" android:layout_marginTop="5dip"></ListView>
+	</LinearLayout>
+	<View android:layout_height="match_parent" android:layout_width="2dip"
+		android:id="@+id/border" android:background="#8B8878"
+		android:layout_toRightOf="@id/recentsLayout"
+		android:layout_alignBottom="@+id/linearLayout1"
+		android:layout_alignTop="@+id/recentsLayout"
+		android:layout_marginLeft="50dip"></View>
+	<LinearLayout android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1" android:orientation="vertical"
+		android:layout_alignTop="@+id/recentsLayout" android:layout_toRightOf="@+id/border"
+		android:layout_marginLeft="50dip" android:layout_width="300dip">
+		<TextView android:text="@string/new_project_btn"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			style="@style/homeScreenHeadline" android:id="@+id/textView2"
+			android:layout_gravity="left"></TextView>
+		<ImageButton android:src="@drawable/create_project"
+			android:background="#00000000" android:layout_width="150dip"
+			android:id="@+id/btn_new_proj" android:layout_marginLeft="5dip"
+			android:onClick="createNewProject" android:layout_height="150dip"
+			android:layout_gravity="left"></ImageButton>
+		<TextView android:text="@string/create_new_proj_desc"
+			android:textSize="18dip" android:layout_width="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_height="wrap_content" android:id="@+id/textView3"
+			android:layout_gravity="left"></TextView>
+	</LinearLayout>
+	<LinearLayout android:layout_height="wrap_content"
+		android:id="@+id/buttonsMenuLayout" android:layout_width="wrap_content"
+		android:orientation="vertical" android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true" android:layout_marginBottom="74dp">
+		<ImageButton android:visibility="invisible" android:src="@drawable/ic_export_proj"
+			android:background="#00000000" android:layout_width="150dip"
+			android:id="@+id/btn_export" android:layout_marginLeft="5dip"
+			android:layout_height="150dip"></ImageButton>
+		<TextView android:text="@string/export_project"
+			android:layout_width="wrap_content" android:layout_marginTop="-30dip"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:visibility="invisible" android:id="@+id/TextView03"></TextView>
+	</LinearLayout>
+	<View android:layout_height="match_parent" android:layout_width="2dip"
+		android:id="@+id/View01" android:background="#8B8878"
+		android:layout_alignTop="@+id/linearLayout1"
+		android:layout_alignBottom="@+id/linearLayout1"
+		android:layout_toRightOf="@+id/linearLayout1"
+		android:layout_marginLeft="50dip"></View>
+	<LinearLayout android:layout_height="wrap_content"
+		android:id="@+id/importLayout" android:orientation="vertical"
+		android:layout_alignTop="@+id/linearLayout1" android:layout_toRightOf="@+id/View01"
+		android:layout_marginLeft="50dip" android:layout_width="300dip">
+		<TextView android:text="@string/import_project"
+			android:layout_width="wrap_content" style="@style/homeScreenHeadline"
+			android:layout_height="wrap_content" android:id="@+id/TextView02"
+			android:layout_gravity="left"></TextView>
+		<ImageButton android:src="@drawable/import_project"
+			android:background="#00000000" android:layout_width="150dip"
+			android:id="@+id/btn_import" android:onClick="importProject"
+			android:layout_height="150dip" android:layout_gravity="left"></ImageButton>
+		<TextView android:layout_height="wrap_content"
+			android:textSize="18dip" android:text="@string/import_desc"
+			android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"
+			android:id="@+id/TextView04" android:layout_gravity="left"></TextView>
+	</LinearLayout>
+</RelativeLayout>

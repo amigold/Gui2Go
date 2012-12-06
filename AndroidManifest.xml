@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ami.gui2go"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <supports-screens
+        android:smallScreens="false"
+        android:resizeable="true"
+        android:normalScreens="false"
+        android:xlargeScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true"></supports-screens>
+
+    <application
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/launcher">
+        <activity
+            android:name="EditorActivity"
+            android:label="@string/editor_name"
+            android:launchMode="singleTask"
+            android:icon="@drawable/action_logo_back">
+
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name="com.ami.gui2go.HomeScreen"
+            android:icon="@drawable/launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ActivityManager"
+            android:label="@string/activity_manager"
+            android:icon="@drawable/action_logo_back"></activity>
+        <activity
+            android:name="ProjectManager"
+            android:label="@string/project_manager"
+            android:icon="@drawable/action_logo_back"></activity>
+        <activity
+            android:name="UserGuideActivity"
+            android:label="@string/user_guide_activity"
+            android:icon="@drawable/action_logo_back"></activity>
+        <activity
+            android:name="ResourceManager"
+            android:label="@string/resource_manager"
+            android:icon="@drawable/action_logo_back"></activity>
+
+    </application>
+</manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/addResourceBtn" android:title="@string/add_res"
+		android:titleCondensed="@string/add_res_short"
+		android:icon="@drawable/ic_add_res" android:showAsAction="ifRoom"></item>
+	<item android:id="@+id/newActivityBtn" android:icon="@drawable/ic_add_act"
+		android:title="@string/new_act_btn" android:showAsAction="ifRoom"></item>
+	<item android:showAsAction="ifRoom" android:title="@string/save_btn" android:icon="@drawable/ic_save" android:id="@+id/saveBtn"></item><item android:id="@+id/manageActsBtn" android:icon="@drawable/ic_manage_act"
+		android:showAsAction="ifRoom|withText" android:title="@string/manage_acts"></item>
+	
+	
+	
+	<item android:title="@string/clear_scrn" android:id="@+id/clear_menu_btn"></item>
+	<item android:id="@+id/change_root_layout" android:title="@string/change_root_layout"></item><item android:id="@+id/manageResBtn" android:icon="@drawable/ic_manage_res" android:showAsAction="ifRoom|withText" android:title="@string/manage_res"></item><item android:id="@+id/exportBtn" android:icon="@drawable/ic_export_xml" android:title="@string/export_btn" android:showAsAction="ifRoom"></item><item android:id="@+id/usage_guide_menu" android:icon="@drawable/icon" android:title="@string/usage_guide"></item>
+	
+</menu>

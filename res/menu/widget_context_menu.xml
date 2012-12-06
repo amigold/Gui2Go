@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/delete_btn_context" android:title="@string/del_btn"></item>
+    <item android:id="@+id/rename_btn_context" android:title="@string/rename_btn"></item>
+    <item android:title="@string/change_size" android:id="@+id/change_size_context"></item>
+    <item android:title="@string/change_text" android:id="@+id/change_text_context"></item>
+    <item android:title="@string/lock" android:id="@+id/lock_context"></item>
+    <item android:id="@+id/context_layout_params" android:title="@string/set_layout_params"></item>
+</menu>

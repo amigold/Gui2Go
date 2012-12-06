@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:background="@drawable/bg_1280_800_1"
+	android:layout_height="match_parent">
+	<TextView android:id="@+id/acts_text" android:layout_height="wrap_content"
+		android:text="@string/image_resources" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:layout_marginLeft="50dip" android:layout_marginTop="35dip"></TextView>
+	<ListView android:id="@+id/resourceList"
+		android:layout_below="@+id/acts_text" android:layout_alignLeft="@+id/acts_text" android:layout_width="500dip" android:layout_height="600dip" android:layout_marginLeft="5dip"></ListView>
+	<View android:layout_width="2dip" android:background="#8B8878"
+		android:layout_height="match_parent" android:id="@+id/border"
+		android:layout_alignTop="@id/resourceList" android:layout_alignBottom="@id/resourceList"
+		android:layout_alignLeft="@+id/textView2"></View>
+	<FrameLayout android:layout_height="wrap_content" android:alpha="1.0" android:layout_width="wrap_content" android:layout_below="@+id/acts_text" android:layout_alignParentRight="true" android:layout_marginRight="60dp" android:layout_marginTop="-10dip" android:id="@+id/preview_frame">
+		<ImageView android:layout_width="wrap_content" android:src="@drawable/bg_box_image_preview" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
+		<ImageView android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_gravity="center" android:id="@+id/previewImage" android:layout_height="wrap_content"></ImageView>
+		<TextView android:layout_width="wrap_content" android:text="@string/preview" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_marginLeft="25dip" android:layout_marginTop="20dip"></TextView>
+	</FrameLayout>
+</RelativeLayout>
