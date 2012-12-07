@@ -148,8 +148,8 @@ public class FileDialogFragment extends DialogFragment
 				} else if (act instanceof EditorActivity) {
 					((EditorActivity) act).addResource(file.getAbsolutePath());
 					getDialog().dismiss();
-				} else if (act instanceof ResourceManager) {
-					((ResourceManager) act).addResource(file.getAbsolutePath());
+				} else if (act instanceof ResourceManagerActivity) {
+					((ResourceManagerActivity) act).addResource(file.getAbsolutePath());
 					getDialog().dismiss();
 				}
 			}

@@ -9,8 +9,9 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
 
     <supports-screens
         android:smallScreens="false"
@@ -46,7 +47,7 @@
             android:label="@string/activity_manager"
             android:icon="@drawable/action_logo_back"></activity>
         <activity
-            android:name="ProjectManager"
+            android:name="com.ami.gui2go.ProjectManagerActivity"
             android:label="@string/project_manager"
             android:icon="@drawable/action_logo_back"></activity>
         <activity
@@ -54,7 +55,7 @@
             android:label="@string/user_guide_activity"
             android:icon="@drawable/action_logo_back"></activity>
         <activity
-            android:name="ResourceManager"
+            android:name="com.ami.gui2go.ResourceManagerActivity"
             android:label="@string/resource_manager"
             android:icon="@drawable/action_logo_back"></activity>
 

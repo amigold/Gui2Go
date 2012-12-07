@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.ami.gui2go.models.ActivityInfo;
 import com.ami.gui2go.models.ProjectInfo;
 import com.ami.gui2go.models.WidgetTypes;
+import com.ami.gui2go.utils.LayoutXMLCreator;
+import com.ami.gui2go.utils.ProjectXMLParser;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;

@@ -5,6 +5,7 @@ import java.io.File;
 import com.ami.gui2go.models.ActivityInfo;
 import com.ami.gui2go.models.ProjectInfo;
 import com.ami.gui2go.utils.FileHelper;
+import com.ami.gui2go.utils.ProjectXMLParser;
 import com.ami.gui2go.utils.TextValidator;
 
 import android.app.Activity;
@@ -31,495 +32,534 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HomeActivity extends Activity
-{
-	public class ProjectItemClickListener implements OnItemClickListener
-	{
-		@Override
-		public void onItemClick(AdapterView<?> parent, View v, int position,
-				long id)
-		{
-			ProjectXMLParser parser = new ProjectXMLParser(
-					projectNames[position], HomeActivity.this);
-			parser.StartParser();
-			ProjectInfo project = parser.GetProjectInfo();
+public class HomeActivity extends Activity {
+    public class ProjectItemClickListener implements OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View v, int position,
+                        long id) {
+            ProjectXMLParser parser = new ProjectXMLParser(
+                            projectNames[position], HomeActivity.this);
+            parser.StartParser();
+            ProjectInfo project = parser.GetProjectInfo();
 
-			LoadProjectMainActivity(project.name);
-		}
-	}
+            LoadProjectMainActivity(project.name);
+        }
+    }
 
-	// Grab UI items
-	ListView recentList;
+    // Grab UI items
+    ListView recentList;
 
-	String[] projectNames;
-	String[] recentNames;
+    String[] projectNames;
+    String[] recentNames;
 
-	public void createNewProject(View v)
-	{
-		final View sizeView = getLayoutInflater().inflate(
-				R.layout.new_project_dialog, null);
+    public void createNewProject(View v) {
+        final View sizeView = getLayoutInflater().inflate(
+                        R.layout.new_project_dialog, null);
 
-		// set targetSDK spinner values
-		Spinner targetSDK = (Spinner) sizeView
-				.findViewById(R.id.new_projc_sdk_Spinner);
-		ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
-				this, R.array.SDKValues, android.R.layout.simple_spinner_item);
-		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		targetSDK.setAdapter(adapter1);
-		
-		// set window size spinner values
-		Spinner windowSize = (Spinner) sizeView
-				.findViewById(R.id.new_proj_size_Spinner);
-		ArrayAdapter<CharSequence> adapter2 = ArrayAdapter
-				.createFromResource(this, R.array.screenSizes,
-						android.R.layout.simple_spinner_item);
-		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		windowSize.setAdapter(adapter2);
+        // set targetSDK spinner values
+        Spinner targetSDK = (Spinner) sizeView
+                        .findViewById(R.id.new_projc_sdk_Spinner);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
+                        this, R.array.SDKValues,
+                        android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        targetSDK.setAdapter(adapter1);
 
-		// set root layout types spinner
-		final Spinner layoutType = (Spinner) sizeView
-				.findViewById(R.id.new_proj_layout_spinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.rootLayoutTypes,
-				android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		layoutType.setAdapter(adapter);
+        // set window size spinner values
+        Spinner windowSize = (Spinner) sizeView
+                        .findViewById(R.id.new_proj_size_Spinner);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+                        this, R.array.screenSizes,
+                        android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        windowSize.setAdapter(adapter2);
 
-		new AlertDialog.Builder(this).setTitle("New Project..")
-				.setView(sizeView)
-				.setPositiveButton("OK", new DialogInterface.OnClickListener()
-				{
+        // set root layout types spinner
+        final Spinner layoutType = (Spinner) sizeView
+                        .findViewById(R.id.new_proj_layout_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                        this, R.array.rootLayoutTypes,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        layoutType.setAdapter(adapter);
 
-					@Override
-					public void onClick(DialogInterface dialog, int whichbutton)
-					{
-						EditText projName = (EditText) sizeView
-								.findViewById(R.id.new_proj_name);
-						EditText mainActName = (EditText) sizeView
-								.findViewById(R.id.new_proj_main_act);
-						Spinner targetSDK = (Spinner) sizeView
-								.findViewById(R.id.new_projc_sdk_Spinner);
-						Spinner windowSize = (Spinner) sizeView
-								.findViewById(R.id.new_proj_size_Spinner);
-						EditText author = (EditText) sizeView
-								.findViewById(R.id.new_proj_author);
+        new AlertDialog.Builder(this)
+                        .setTitle("New Project..")
+                        .setView(sizeView)
+                        .setPositiveButton("OK",
+                                        new DialogInterface.OnClickListener() {
 
-						// validation
-						boolean shouldProceed = true;
-						if (!TextValidator.isNameFieldValid(mainActName
-								.getText().toString())) {
-							Toast.makeText(HomeActivity.this,
-									"Invalid activity name!",
-									Toast.LENGTH_SHORT).show();
-							shouldProceed = false;
-							dialog.cancel();
-						}
-						if (!TextValidator.isNameFieldValid(projName.getText()
-								.toString())) {
-							Toast.makeText(HomeActivity.this,
-									"Invalid project name!", Toast.LENGTH_SHORT)
-									.show();
-							shouldProceed = false;
-							dialog.cancel();
-						}
-						// ///
-						ProjectInfo newProject = new ProjectInfo();
-						ActivityInfo mainAct = new ActivityInfo();
+                                            @Override
+                                            public void onClick(
+                                                            DialogInterface dialog,
+                                                            int whichbutton) {
+                                                EditText projName = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_name);
+                                                EditText mainActName = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_main_act);
+                                                Spinner targetSDK = (Spinner) sizeView
+                                                                .findViewById(R.id.new_projc_sdk_Spinner);
+                                                Spinner windowSize = (Spinner) sizeView
+                                                                .findViewById(R.id.new_proj_size_Spinner);
+                                                EditText author = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_author);
 
-						newProject.name = projName.getText().toString();
-						newProject.targetSDK = targetSDK.getSelectedItem()
-								.toString();
-						newProject.mainActivityName = mainActName.getText()
-								.toString();
-						newProject.author = author.getText().toString();
-						mainAct.name = mainActName.getText().toString();
-						mainAct.screenSize = windowSize.getSelectedItem()
-								.toString();
+                                                // validation
+                                                boolean shouldProceed = true;
+                                                if (!TextValidator
+                                                                .isNameFieldValid(mainActName
+                                                                                .getText()
+                                                                                .toString())) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Invalid activity name!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                    dialog.cancel();
+                                                }
+                                                if (!TextValidator
+                                                                .isNameFieldValid(projName
+                                                                                .getText()
+                                                                                .toString())) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Invalid project name!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                    dialog.cancel();
+                                                }
+                                                // ///
+                                                ProjectInfo newProject = new ProjectInfo();
+                                                ActivityInfo mainAct = new ActivityInfo();
 
-						String[] projects = FindAvailableProjectNames();
+                                                newProject.name = projName
+                                                                .getText()
+                                                                .toString();
+                                                newProject.targetSDK = targetSDK
+                                                                .getSelectedItem()
+                                                                .toString();
+                                                newProject.mainActivityName = mainActName
+                                                                .getText()
+                                                                .toString();
+                                                newProject.author = author
+                                                                .getText()
+                                                                .toString();
+                                                mainAct.name = mainActName
+                                                                .getText()
+                                                                .toString();
+                                                mainAct.screenSize = windowSize
+                                                                .getSelectedItem()
+                                                                .toString();
 
-						// check if project exists already
-						for (int i = 0; i < projects.length; i++) {
-							if (projects[i].equals(newProject.name)) {
-								Toast.makeText(
-										HomeActivity.this,
-										"A project by this name already exists!",
-										Toast.LENGTH_SHORT).show();
-								shouldProceed = false;
-							}
-						}
+                                                String[] projects = FindAvailableProjectNames();
 
-						// check if the activity and project name are the same
-						if (newProject.name.equals(mainAct.name)) {
-							Toast.makeText(
-									HomeActivity.this,
-									"Identical project/activity names are not allowed!",
-									Toast.LENGTH_SHORT).show();
-							shouldProceed = false;
-						}
+                                                if (projects != null) {
+                                                    // check if project exists
+                                                    // already
+                                                    for (int i = 0; i < projects.length; i++) {
+                                                        if (projects[i].equals(newProject.name)) {
+                                                            Toast.makeText(HomeActivity.this,
+                                                                            "A project by this name already exists!",
+                                                                            Toast.LENGTH_SHORT)
+                                                                            .show();
+                                                            shouldProceed = false;
+                                                        }
+                                                    }
+                                                }
 
-						if (shouldProceed == true) {
-							ProjectXMLParser parser = new ProjectXMLParser(
-									newProject.name, HomeActivity.this);
-							parser.CreateNewProjectXML(newProject, mainAct);
+                                                // check if the activity and
+                                                // project name are the same
+                                                if (newProject.name
+                                                                .equals(mainAct.name)) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Identical project/activity names are not allowed!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                }
 
-							Intent i = new Intent(HomeActivity.this,
-									EditorActivity.class);
-							i.putExtra("project", newProject);
-							i.putExtra("activity", mainAct);
-							i.putExtra("isNewActivity", true);
-							i.putExtra("layoutType", layoutType
-									.getSelectedItem().toString());
-							startActivity(i);
-						}
-					}
-				}).setNegativeButton("Cancel", null).show();
-	}
+                                                if (shouldProceed == true) {
+                                                    ProjectXMLParser parser = new ProjectXMLParser(
+                                                                    newProject.name,
+                                                                    HomeActivity.this);
+                                                    parser.CreateNewProjectXML(
+                                                                    newProject,
+                                                                    mainAct);
 
-	public void doFileItemClick(final String fileName)
-	{
-		final View sizeView = getLayoutInflater().inflate(
-				R.layout.new_project_dialog, null);
+                                                    Intent i = new Intent(
+                                                                    HomeActivity.this,
+                                                                    EditorActivity.class);
+                                                    i.putExtra("project",
+                                                                    newProject);
+                                                    i.putExtra("activity",
+                                                                    mainAct);
+                                                    i.putExtra("isNewActivity",
+                                                                    true);
+                                                    i.putExtra("layoutType",
+                                                                    layoutType.getSelectedItem()
+                                                                                    .toString());
+                                                    startActivity(i);
+                                                }
+                                            }
+                                        }).setNegativeButton("Cancel", null)
+                        .show();
+    }
 
-		// set targetSDK spinner values
-		Spinner targetSDK = (Spinner) sizeView
-				.findViewById(R.id.new_projc_sdk_Spinner);
-		ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
-				this, R.array.SDKValues, android.R.layout.simple_spinner_item);
-		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		targetSDK.setAdapter(adapter1);
-		// set window size spinner values
-		Spinner windowSize = (Spinner) sizeView
-				.findViewById(R.id.new_proj_size_Spinner);
-		ArrayAdapter<CharSequence> adapter2 = ArrayAdapter
-				.createFromResource(this, R.array.screenSizes,
-						android.R.layout.simple_spinner_item);
-		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		windowSize.setAdapter(adapter2);
+    public void doFileItemClick(final String fileName) {
+        final View sizeView = getLayoutInflater().inflate(
+                        R.layout.new_project_dialog, null);
 
-		// set root layout types spinner
-		final Spinner layoutType = (Spinner) sizeView
-				.findViewById(R.id.new_proj_layout_spinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.rootLayoutTypes,
-				android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		layoutType.setAdapter(adapter);
+        // set targetSDK spinner values
+        Spinner targetSDK = (Spinner) sizeView
+                        .findViewById(R.id.new_projc_sdk_Spinner);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
+                        this, R.array.SDKValues,
+                        android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        targetSDK.setAdapter(adapter1);
+        // set window size spinner values
+        Spinner windowSize = (Spinner) sizeView
+                        .findViewById(R.id.new_proj_size_Spinner);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+                        this, R.array.screenSizes,
+                        android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        windowSize.setAdapter(adapter2);
 
-		new AlertDialog.Builder(this).setTitle("New Project..")
-				.setView(sizeView)
-				.setPositiveButton("OK", new DialogInterface.OnClickListener()
-				{
+        // set root layout types spinner
+        final Spinner layoutType = (Spinner) sizeView
+                        .findViewById(R.id.new_proj_layout_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                        this, R.array.rootLayoutTypes,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        layoutType.setAdapter(adapter);
 
-					@Override
-					public void onClick(DialogInterface dialog, int whichbutton)
-					{
-						EditText projName = (EditText) sizeView
-								.findViewById(R.id.new_proj_name);
-						EditText mainActName = (EditText) sizeView
-								.findViewById(R.id.new_proj_main_act);
-						Spinner targetSDK = (Spinner) sizeView
-								.findViewById(R.id.new_projc_sdk_Spinner);
-						Spinner windowSize = (Spinner) sizeView
-								.findViewById(R.id.new_proj_size_Spinner);
-						EditText author = (EditText) sizeView
-								.findViewById(R.id.new_proj_author);
+        new AlertDialog.Builder(this)
+                        .setTitle("New Project..")
+                        .setView(sizeView)
+                        .setPositiveButton("OK",
+                                        new DialogInterface.OnClickListener() {
 
-						// validation
-						boolean shouldProceed = true;
-						if (!TextValidator.isNameFieldValid(mainActName
-								.getText().toString())) {
-							Toast.makeText(HomeActivity.this,
-									"Invalid activity name!",
-									Toast.LENGTH_SHORT).show();
-							shouldProceed = false;
-							dialog.cancel();
-						}
-						if (!TextValidator.isNameFieldValid(projName.getText()
-								.toString())) {
-							Toast.makeText(HomeActivity.this,
-									"Invalid project name!", Toast.LENGTH_SHORT)
-									.show();
-							shouldProceed = false;
-							dialog.cancel();
-						}
-						// ///
-						ProjectInfo newProject = new ProjectInfo();
-						ActivityInfo mainAct = new ActivityInfo();
+                                            @Override
+                                            public void onClick(
+                                                            DialogInterface dialog,
+                                                            int whichbutton) {
+                                                EditText projName = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_name);
+                                                EditText mainActName = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_main_act);
+                                                Spinner targetSDK = (Spinner) sizeView
+                                                                .findViewById(R.id.new_projc_sdk_Spinner);
+                                                Spinner windowSize = (Spinner) sizeView
+                                                                .findViewById(R.id.new_proj_size_Spinner);
+                                                EditText author = (EditText) sizeView
+                                                                .findViewById(R.id.new_proj_author);
 
-						newProject.name = projName.getText().toString();
-						newProject.targetSDK = targetSDK.getSelectedItem()
-								.toString();
-						newProject.mainActivityName = mainActName.getText()
-								.toString();
-						newProject.author = author.getText().toString();
-						mainAct.name = mainActName.getText().toString();
-						mainAct.screenSize = windowSize.getSelectedItem()
-								.toString();
+                                                // validation
+                                                boolean shouldProceed = true;
+                                                if (!TextValidator
+                                                                .isNameFieldValid(mainActName
+                                                                                .getText()
+                                                                                .toString())) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Invalid activity name!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                    dialog.cancel();
+                                                }
+                                                if (!TextValidator
+                                                                .isNameFieldValid(projName
+                                                                                .getText()
+                                                                                .toString())) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Invalid project name!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                    dialog.cancel();
+                                                }
+                                                // ///
+                                                ProjectInfo newProject = new ProjectInfo();
+                                                ActivityInfo mainAct = new ActivityInfo();
 
-						String[] projects = FindAvailableProjectNames();
+                                                newProject.name = projName
+                                                                .getText()
+                                                                .toString();
+                                                newProject.targetSDK = targetSDK
+                                                                .getSelectedItem()
+                                                                .toString();
+                                                newProject.mainActivityName = mainActName
+                                                                .getText()
+                                                                .toString();
+                                                newProject.author = author
+                                                                .getText()
+                                                                .toString();
+                                                mainAct.name = mainActName
+                                                                .getText()
+                                                                .toString();
+                                                mainAct.screenSize = windowSize
+                                                                .getSelectedItem()
+                                                                .toString();
 
-						// check if project exists already
-						for (int i = 0; i < projects.length; i++) {
-							if (projects[i].equals(newProject.name)) {
-								Toast.makeText(
-										HomeActivity.this,
-										"A project by this name already exists!",
-										Toast.LENGTH_SHORT).show();
-								shouldProceed = false;
-							}
-						}
+                                                String[] projects = FindAvailableProjectNames();
 
-						// check if the activity and project name are the same
-						if (newProject.name.equals(mainAct.name)) {
-							Toast.makeText(
-									HomeActivity.this,
-									"Identical project/activity names are not allowed!",
-									Toast.LENGTH_SHORT).show();
-							shouldProceed = false;
-						}
+                                                // check if project exists
+                                                // already
+                                                for (int i = 0; i < projects.length; i++) {
+                                                    if (projects[i].equals(newProject.name)) {
+                                                        Toast.makeText(HomeActivity.this,
+                                                                        "A project by this name already exists!",
+                                                                        Toast.LENGTH_SHORT)
+                                                                        .show();
+                                                        shouldProceed = false;
+                                                    }
+                                                }
 
-						if (shouldProceed == true) {
-							ProjectXMLParser parser = new ProjectXMLParser(
-									newProject.name, HomeActivity.this);
-							parser.CreateNewProjectXML(newProject, mainAct);
+                                                // check if the activity and
+                                                // project name are the same
+                                                if (newProject.name
+                                                                .equals(mainAct.name)) {
+                                                    Toast.makeText(HomeActivity.this,
+                                                                    "Identical project/activity names are not allowed!",
+                                                                    Toast.LENGTH_SHORT)
+                                                                    .show();
+                                                    shouldProceed = false;
+                                                }
 
-							File from = new File(fileName);
-							File to = new File(Environment
-									.getExternalStorageDirectory()
-									+ "/Gui2Go/Projects/"
-									+ newProject.name
-									+ "/" + mainAct.name + ".xml");
-							try {
-								FileHelper.copy(from, to);
-							} catch (Exception e) {
-//								Log.d("Import XML", "Error");
-								Toast.makeText(HomeActivity.this,
-										"Error importing XML!",
-										Toast.LENGTH_SHORT).show();
-							}
-						}
-					}
-				}).setNegativeButton("Cancel", null).show();
-	}
+                                                if (shouldProceed == true) {
+                                                    ProjectXMLParser parser = new ProjectXMLParser(
+                                                                    newProject.name,
+                                                                    HomeActivity.this);
+                                                    parser.CreateNewProjectXML(
+                                                                    newProject,
+                                                                    mainAct);
 
-	public void exportProject()
-	{
-		// TODO fill it up
-	}
+                                                    File from = new File(
+                                                                    fileName);
+                                                    File to = new File(
+                                                                    Environment.getExternalStorageDirectory()
+                                                                                    + "/Gui2Go/Projects/"
+                                                                                    + newProject.name
+                                                                                    + "/"
+                                                                                    + mainAct.name
+                                                                                    + ".xml");
+                                                    try {
+                                                        FileHelper.copy(from,
+                                                                        to);
+                                                    } catch (Exception e) {
+                                                        // Log.d("Import XML",
+                                                        // "Error");
+                                                        Toast.makeText(HomeActivity.this,
+                                                                        "Error importing XML!",
+                                                                        Toast.LENGTH_SHORT)
+                                                                        .show();
+                                                    }
+                                                }
+                                            }
+                                        }).setNegativeButton("Cancel", null)
+                        .show();
+    }
 
-	private String[] FindAvailableProjectNames()
-	{
-		String path = Environment.getExternalStorageDirectory()
-				+ "/Gui2Go/Projects/";
+    public void exportProject() {
+        // TODO fill it up
+    }
 
-		File f = new File(path);
-		if (!f.exists()) {
-			f.mkdirs();
-		}
-		return f.list();
-	}
+    private String[] FindAvailableProjectNames() {
+        String path = Environment.getExternalStorageDirectory()
+                        + "/Gui2Go/Projects/";
 
-	public void importProject(View v)
-	{
-		showFileOpenDialog();
-	}
+        File f = new File(path);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+        return f.list();
+    }
 
-	private boolean isFirstLaunch()
-	{
-		// Restore preferences
-		SharedPreferences settings = getSharedPreferences("prefs", 0);
-		boolean isFirstLaunch = settings.getBoolean("isFirstLaunch", true);
+    public void importProject(View v) {
+        showFileOpenDialog();
+    }
 
-		return isFirstLaunch;
-	}
+    private boolean isFirstLaunch() {
+        // Restore preferences
+        SharedPreferences settings = getSharedPreferences("prefs", 0);
+        boolean isFirstLaunch = settings.getBoolean("isFirstLaunch", true);
 
-	public void LoadProject(View v)
-	{
-		final String[] projects = FindAvailableProjectNames();
+        return isFirstLaunch;
+    }
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Choose Project:");
-		builder.setItems(projects, new DialogInterface.OnClickListener()
-		{
-			public void onClick(DialogInterface dialog, int item)
-			{
-				LoadProjectMainActivity(projects[item]);
-			}
-		}).show();
-	}
+    public void LoadProject(View v) {
+        final String[] projects = FindAvailableProjectNames();
 
-	private void LoadProjectMainActivity(String projectName)
-	{
-		try {
-			// Parse all project and activity info from the XMLs
-			ProjectXMLParser parser = new ProjectXMLParser(projectName, this);
-			parser.StartParser();
-			ProjectInfo project = parser.GetProjectInfo();
-			ActivityInfo mainAct = parser
-					.GetActivityInfo(project.mainActivityName);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Project:");
+        builder.setItems(projects, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int item) {
+                LoadProjectMainActivity(projects[item]);
+            }
+        }).show();
+    }
 
-			// Load the main activity in the project
-			Intent i = new Intent(this, EditorActivity.class);
-			i.putExtra("project", project);
-			i.putExtra("activity", mainAct);
-			i.putExtra("projectLoaderFlag", true);
-			startActivity(i);
-		} catch (Exception e) {
-//			Log.d("Loading", e.getMessage());
-			Toast.makeText(this, "Couldn't load project!", Toast.LENGTH_SHORT)
-					.show();
-		}
-	}
+    private void LoadProjectMainActivity(String projectName) {
+        try {
+            // Parse all project and activity info from the XMLs
+            ProjectXMLParser parser = new ProjectXMLParser(projectName, this);
+            parser.StartParser();
+            ProjectInfo project = parser.GetProjectInfo();
+            ActivityInfo mainAct = parser
+                            .GetActivityInfo(project.mainActivityName);
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.home);
+            // Load the main activity in the project
+            Intent i = new Intent(this, EditorActivity.class);
+            i.putExtra("project", project);
+            i.putExtra("activity", mainAct);
+            i.putExtra("projectLoaderFlag", true);
+            startActivity(i);
+        } catch (Exception e) {
+            // Log.d("Loading", e.getMessage());
+            Toast.makeText(this, "Couldn't load project!", Toast.LENGTH_SHORT)
+                            .show();
+        }
+    }
 
-		// Init the activity
-		recentList = (ListView) findViewById(R.id.recentsList);
-		recentList.setOnItemClickListener(new ProjectItemClickListener());
-		recentList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.home);
 
-		TextView emptyText = new TextView(this);
-		emptyText.setText("No Projects!");
-		emptyText.setTextSize(24);
-		recentList.setEmptyView(emptyText);
-		
-		UpdateRecentsList();
+        // Init the activity
+        recentList = (ListView) findViewById(R.id.recentsList);
+        recentList.setOnItemClickListener(new ProjectItemClickListener());
+        recentList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-		setTitle("");
-		
-		// showFirstTimeHelpDialog();
-		if (isFirstLaunch()) {
-			showFirstTimeHelpDialog();
+        TextView emptyText = new TextView(this);
+        emptyText.setText("No Projects!");
+        emptyText.setTextSize(24);
+        recentList.setEmptyView(emptyText);
 
-			// Save the preferences, isFirstLaunch will now be false
-			SharedPreferences settings = getSharedPreferences("prefs", 0);
-			SharedPreferences.Editor editor = settings.edit();
-			editor.putBoolean("isFirstLaunch", false);
-			editor.commit();
-		}
-	}
+        UpdateRecentsList();
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		new MenuInflater(this).inflate(R.menu.home_menu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
+        setTitle("");
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId()) {
-			case R.id.manage_projects_menu:
-				openProjectManager();
-				return (true);
-			case R.id.usage_guide_menu:
-				openUserGuide();
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        // showFirstTimeHelpDialog();
+        if (isFirstLaunch()) {
+            showFirstTimeHelpDialog();
 
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
-		UpdateRecentsList();
-	}
+            // Save the preferences, isFirstLaunch will now be false
+            SharedPreferences settings = getSharedPreferences("prefs", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("isFirstLaunch", false);
+            editor.commit();
+        }
+    }
 
-	private void openProjectManager()
-	{
-		Intent i = new Intent(this, ProjectManager.class);
-		startActivity(i);
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.home_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-	private void openUserGuide()
-	{
-		Intent i = new Intent(this, UserGuideActivity.class);
-		startActivity(i);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.manage_projects_menu:
+            openProjectManager();
+            return (true);
+        case R.id.usage_guide_menu:
+            openUserGuide();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	private void showFileOpenDialog()
-	{
-		String path = Environment.getExternalStorageDirectory() + "/";
-		FileDialogFragment newFragment = FileDialogFragment.newInstance(path);
-		newFragment.show(getFragmentManager(), "dialog");
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
+        UpdateRecentsList();
+    }
 
-	private void showFirstTimeHelpDialog()
-	{
-		AlertDialog.Builder builder;
-		AlertDialog alertDialog;
+    private void openProjectManager() {
+        Intent i = new Intent(this, ProjectManagerActivity.class);
+        startActivity(i);
+    }
 
-		LayoutInflater inflater = getLayoutInflater();
-		View layout = inflater.inflate(R.layout.first_help_dialog,
-				(ViewGroup) findViewById(R.id.root));
+    private void openUserGuide() {
+        Intent i = new Intent(this, UserGuideActivity.class);
+        startActivity(i);
+    }
 
-		TextView text = (TextView) layout.findViewById(R.id.help2);
-		text.setMovementMethod(LinkMovementMethod.getInstance());
+    private void showFileOpenDialog() {
+        String path = Environment.getExternalStorageDirectory() + "/";
+        FileDialogFragment newFragment = FileDialogFragment.newInstance(path);
+        newFragment.show(getFragmentManager(), "dialog");
+    }
 
-		builder = new AlertDialog.Builder(this);
-		builder.setView(layout);
-		builder.setTitle("Welcome to Gui 2 Go!");
-		builder.setPositiveButton("Ok, take me to the guide!",
-				new OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int which)
-					{
-						openUserGuide();
-					}
-				});
-		builder.setNegativeButton("No thanks, I'm actually a Pro in disguise",
-				new OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int which)
-					{
-						dialog.cancel();
-					}
-				});
-		alertDialog = builder.create();
-		alertDialog.show();
-	}
+    private void showFirstTimeHelpDialog() {
+        AlertDialog.Builder builder;
+        AlertDialog alertDialog;
 
-	@SuppressWarnings("unchecked")
-	private void UpdateRecentsList()
-	{
-		ArrayAdapter<String> adapter = null;
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.first_help_dialog,
+                        (ViewGroup) findViewById(R.id.root));
 
-		projectNames = FindAvailableProjectNames();
-		
-		if(projectNames == null)
-		    return;
-		
-		if (projectNames.length > 5) {
-			recentNames = new String[5];
-			for (int i = 0; i < 5; i++) {
-				recentNames[i] = projectNames[i];
-			}
-			adapter = new ArrayAdapter<String>(this,
-					R.layout.small_list_item_row, recentNames);
-			recentList.setAdapter(adapter);
-			((ArrayAdapter<String>) recentList.getAdapter())
-					.notifyDataSetChanged();
-		} else if (projectNames.length > 0) {
-			adapter = new ArrayAdapter<String>(this,
-					R.layout.small_list_item_row, projectNames);
-			recentList.setAdapter(adapter);
-			((ArrayAdapter<String>) recentList.getAdapter())
-					.notifyDataSetChanged();
-		} else { // its empty
-			adapter = new ArrayAdapter<String>(this,
-					R.layout.small_list_item_row, projectNames);
-			recentList.setAdapter(adapter);
-			((ArrayAdapter<String>) recentList.getAdapter())
-					.notifyDataSetInvalidated();
-		}
-	}
+        TextView text = (TextView) layout.findViewById(R.id.help2);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
+
+        builder = new AlertDialog.Builder(this);
+        builder.setView(layout);
+        builder.setTitle("Welcome to Gui 2 Go!");
+        builder.setPositiveButton("Ok, take me to the guide!",
+                        new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                            int which) {
+                                openUserGuide();
+                            }
+                        });
+        builder.setNegativeButton("No thanks, I'm actually a Pro in disguise",
+                        new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                            int which) {
+                                dialog.cancel();
+                            }
+                        });
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void UpdateRecentsList() {
+        ArrayAdapter<String> adapter = null;
+
+        projectNames = FindAvailableProjectNames();
+
+        if (projectNames == null)
+            return;
+
+        if (projectNames.length > 5) {
+            recentNames = new String[5];
+            for (int i = 0; i < 5; i++) {
+                recentNames[i] = projectNames[i];
+            }
+            adapter = new ArrayAdapter<String>(this,
+                            R.layout.small_list_item_row, recentNames);
+            recentList.setAdapter(adapter);
+            ((ArrayAdapter<String>) recentList.getAdapter())
+                            .notifyDataSetChanged();
+        } else if (projectNames.length > 0) {
+            adapter = new ArrayAdapter<String>(this,
+                            R.layout.small_list_item_row, projectNames);
+            recentList.setAdapter(adapter);
+            ((ArrayAdapter<String>) recentList.getAdapter())
+                            .notifyDataSetChanged();
+        } else { // its empty
+            adapter = new ArrayAdapter<String>(this,
+                            R.layout.small_list_item_row, projectNames);
+            recentList.setAdapter(adapter);
+            ((ArrayAdapter<String>) recentList.getAdapter())
+                            .notifyDataSetInvalidated();
+        }
+    }
 }
