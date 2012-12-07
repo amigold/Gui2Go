@@ -35,7 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActivityManager extends Activity
-{
+{    
 	private ProjectInfo project = null;
 	private ArrayList<ActivityInfo> activityList;
 	ArrayList<String> activities;
